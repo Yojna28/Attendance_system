@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>iStudent.me</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet" />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <header>
+        <div class="logo">iSTUDENT</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#contact">Contact</a>
+
+            <button class="btn btn-login" onclick="window.location.href='login.html'">
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+
+            <button class="btn btn-register" onclick="window.location.href='register.html'">
+                <i class="fas fa-user-plus"></i> Register
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div id="home" class="main">
+        <div class="main-content" data-animate>
+            <h1>iStudent.me</h1>
+            <h3>Smart Digital Attendance System</h3>
+            <p>
+                iStudent is a digital attendance platform where students can mark their presence online, and teachers get real-time, accurate records — saving time and eliminating errors.
+            </p>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="features" data-animate>
+        <h2>Why Choose iStudent?</h2>
+
+        <div class="feature-boxes">
+            <div class="feature-box" data-animate>
+                <i class="fas fa-user-check"></i>
+                <h3>Easy Attendance</h3>
+                <p>Students can mark attendance in just one click from anywhere.</p>
+            </div>
+
+            <div class="feature-box" data-animate>
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>Teacher Dashboard</h3>
+                <p>Teachers get real-time class records with zero manual work.</p>
+            </div>
+
+            <div class="feature-box" data-animate>
+                <i class="fas fa-chart-line"></i>
+                <h3>Analytics</h3>
+                <p>Track attendance trends with simple charts and reports.</p>
+            </div>
+
+            <div class="feature-box" data-animate>
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile Friendly</h3>
+                <p>Works seamlessly on mobile, tablet, and desktop devices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="how-it-works" data-animate>
+        <h2>How It Works</h2>
+
+        <div class="steps">
+            <div class="step" data-animate>
+                <i class="fas fa-user-graduate"></i>
+                <h3>Student Login</h3>
+                <p>Students log in securely with their ID and password.</p>
+            </div>
+
+            <div class="step" data-animate>
+                <i class="fas fa-hand-pointer"></i>
+                <h3>Mark Attendance</h3>
+                <p>Attendance marked instantly with just one click.</p>
+            </div>
+
+            <div class="step" data-animate>
+                <i class="fas fa-chalkboard"></i>
+                <h3>Teacher Dashboard</h3>
+                <p>Teachers view attendance in real-time with reports.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Footer -->
+    <section id="contact" class="footer">
+        © 2025 iStudent.me | Built with ❤️ by Code-projects.org
+    </section>
+
+    <!-- External JS -->
+    <script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>
