@@ -1,0 +1,213 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>iStudent - Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet" />
+
+
+    <!-- Internal CSS -->
+    <style>
+        /* ========== GLOBAL STYLES ========== */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        /* ========== HEADER ========== */
+        header {
+            background: #ffffff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-family: "Poppins", sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(45deg, #2db34a, #f78f1e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+       .btn {
+      padding: 8px 18px;
+      border: none;
+      cursor: pointer;
+      border-radius: 25px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .btn-login {
+      background: linear-gradient(135deg, #222020, #e9e4e4);
+    }
+
+        /* ========== MAIN SECTION ========== */
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 20px;
+            min-height: 80vh;
+            background: linear-gradient(135deg,
+                    rgba(45, 179, 74, 0.15),
+                    rgba(247, 143, 30, 0.15));
+        }
+
+        .register-box {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .register-box h1 {
+            margin-bottom: 10px;
+        }
+
+        .register-box p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* ========== FORM ========== */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        select {
+            padding: 12px 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #2db34a;
+            outline: none;
+        }
+
+        .gender-options {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #2db34a, #f78f1e);
+            color: white;
+            font-weight: bold;
+            border: none;
+            padding: 14px;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+
+        /* ========== FOOTER ========== */
+        .footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="logo">iSTUDENT</div>
+        <nav>
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'login' %}">
+        <button class="btn btn-login">
+          <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+        </button>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main">
+        <div class="register-box">
+            <h1>Student Registration</h1>
+            <p>Create your iStudent account to access the attendance system.</p>
+
+            <!-- Django Form -->
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <input type="text" name="name" placeholder=" Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="text" name="rollno" placeholder="Roll Number" required>
+
+                <select name="course" required>
+                    <option value="" disabled selected>Select Course</option>
+                    <option value="bsc">B.Sc</option>
+                    <option value="bcom">B.Com</option>
+                    <option value="ba">B.A</option>
+                    <option value="btech">B.Tech</option>
+                </select>
+
+                <div class="gender-options">
+                    <label><input type="radio" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" name="gender" value="female" required> Female</label>
+                    <label><input type="radio" name="gender" value="other" required> Other</label>
+                </div>
+
+                <input type="password" name="password" placeholder="Create Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+
+            <p>Already have an account? 
+                <a href="{% url 'login' %}">Login Here</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="footer">
+        © 2026 iStudent. All rights reserved.
+    </div>
+
+</body>
+
+</html>
